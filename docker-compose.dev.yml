@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  #MongoDB
+  mongo_db:
+    volumes:
+      - mongo_db:/data/db
+
+  app:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+    environment:
+      NODE_ENV: development
+    command: npm run dev
+
+volumes:
+  mongo_db: {}
